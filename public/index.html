@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Management System</h1>
+        <p>Manage student records efficiently</p>
+<div id="loginSection">
+    <h2>Admin Login</h2>
+
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Admin Username" required>
+        <input type="password" id="password" placeholder="Admin Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <p id="loginMessage"></p>
+</div>
+
+<div id="adminSection" style="display:none;">
+    <p>Welcome, <span id="adminName"></span>!</p>
+    <button onclick="logout()">Logout</button>
+</div>
+        <div id="studentControls" style="display:none;">
+
+<h2>Add / Update Student</h2>
+
+<form id="studentForm">
+            <input type="hidden" id="id">
+
+            <input id="name" placeholder="Student Name" required>
+            <input id="rollNo" placeholder="Roll Number" required>
+            <input id="email" type="email" placeholder="Email" required>
+            <input id="department" placeholder="Department (ECE, CSE...)" required>
+            <input id="year" type="number" placeholder="Year" min="1" max="4" required>
+            <input id="phone" placeholder="Phone Number" required>
+
+            <button type="submit">Save Student</button>
+            <button type="reset" onclick="clearForm()">Clear</button>
+        </form>
+        </div>div>
+
+        <h2>Student Records</h2>
+
+        <div class="search">
+            <input id="search" placeholder="Search by Roll Number">
+            <select id="deptFilter">
+                <option value="">All Departments</option>
+                <option value="ECE">ECE</option>
+                <option value="CSE">CSE</option>
+                <option value="EEE">EEE</option>
+                <option value="MECH">MECH</option>
+                <option value="CIVIL">CIVIL</option>
+            </select>
+            <button onclick="loadStudents()">Search</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll No</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Year</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="studentList"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
